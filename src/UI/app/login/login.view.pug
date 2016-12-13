@@ -1,0 +1,15 @@
+.main-content.no-left-menu
+  .main-content-section
+      .login-view
+        .login-form(*ngIf="statusFlag")
+          .row
+            input(type="text",placeholder="Your Email", [(ngModel)]="user.username")
+          .row
+            input(type="password",placeholder="Password", [(ngModel)]="user.password")
+          .row
+            button.button.login-btn((click)="login()") LOGIN
+          .error-msg-output([class.active]='errorMsg')
+            i.icon-warn
+            | {{errorMsg}}
+          .login-footer
+            img.login-logo(src="/assets/images/bb-logo_black.png")
