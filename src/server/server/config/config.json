@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "sam",
+    "password": null,
+    "database": "segmentsMgr",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "sam",
+    "password": null,
+    "database": "segmentsMgr",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "sam",
+    "password": null,
+    "database": "segmentsMgr",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}
