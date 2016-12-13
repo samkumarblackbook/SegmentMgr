@@ -1,0 +1,59 @@
+.main-content.no-left-menu
+  .main-content-section
+    h1.page-title.clr
+      span.title(*ngIf="isNewVehicle") Add New Vehicle
+      span.title(*ngIf="!isNewVehicle && !isReadOnly") Edit {{vehicle.name}}
+      span.title(*ngIf="!isNewVehicle && isReadOnly") {{vehicle.name}}'s Details
+    .main-content-body
+      .row
+        .col.half
+          form.main-content-form([formGroup]="vehicleForm",(submit)="saveForm()")
+            .row
+              .form-sub-head Vehicle Details
+            .row
+              .input-wrapper
+                label Name
+                //error-msg([control]="userForm.controls.firstName")
+                input(type="text",placeholder="Vehicle Name", formControlName="name")
+            .row
+              .input-wrapper
+                label Description
+                //error-msg([control]="userForm.controls.lastName")
+                input(type="text",placeholder="Vehicle Description", formControlName="description")
+            .row
+              .input-wrapper
+                label Make
+                //error-msg([control]="userForm.controls.lastName")
+                input(type="text",placeholder="Vehicle Make", formControlName="make")
+            .row
+              .input-wrapper
+                label Model
+                //error-msg([control]="userForm.controls.username")
+                input(type="text", placeholder="Vehicle Model", formControlName="model")
+            .row
+              .input-wrapper
+                label Year
+                //error-msg([control]="userForm.controls.phoneNumber")
+                input(type="text", placeholder="Year", formControlName="year")
+            .row
+              .input-wrapper
+                label VIN
+                //error-msg([control]="userForm.controls.phoneNumber")
+                input(type="text", placeholder="VIN Number", formControlName="vin")
+
+            .row(*ngIf="!isReadOnly")
+              .col.half
+                button.button.red-btn.pull-right((click)="goBack()") Cancel
+                button.button.yellow-btn.pull-right((click)="resetForm()") Reset
+                button.button.green-btn.pull-right(type="submit", [disabled]="!vehicleForm.valid") Save
+
+        .col.half
+          .row
+            .form-sub-head Vehicle List
+          .row
+             ag-grid-ng2.custom-grid-styles(#aggrid='', style='width: 100%; height: 500px;', [gridOptions]='gridOptions')
+
+
+
+
+
